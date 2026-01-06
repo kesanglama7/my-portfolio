@@ -4,17 +4,11 @@
 
 @custom-variant dark (&:is(.dark *));
 
-/* -----------------------------
-   Base CSS variables
-------------------------------*/
-
-/* -----------------------------
-   Tailwind v4 theme tokens
-------------------------------*/
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
 
+  --font-drug: var(--font-drug);
   /* 👇 USE POPPINS HERE */
   --font-sans: var(--font-poppins),
     system-ui,
@@ -68,7 +62,7 @@
    Base styles
 ------------------------------*/
 body {
-  font-family: var(--font-sans);
+  font-family: var(--font-drug);
 }
 
 :root {
