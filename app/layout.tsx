@@ -5,6 +5,7 @@ import "./globals.css";
 import Header from "@/components/common/header";
 import Footer from "@/components/common/footer";
 import ScrollToTop from "@/components/common/scroll-to-top";
+import JsonLd from "@/lib/seo/jsonld";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -36,10 +37,46 @@ const drugFont = LocalFont({
   variable: "--font-drug",
 });
 
-export const metadata: Metadata = {
-  title: "Kesang Lama | Portfolio",
-  description: "Personal portfolio of Kesang Lama",
+export const metadata = {
+  metadataBase: new URL("https://www.kesanglama.com.np"),
+  title: "Kesang Lama — Multidisciplinary Designer & Developer",
+  description:
+    "Portfolio of Kesang Lama. Multidisciplinary designer & full-stack developer from Nepal.",
+  openGraph: {
+    title: "Kesang Lama — Designer & Developer",
+    description:
+      "Portfolio of Kesang Lama. Multidisciplinary designer & full-stack developer from Nepal.",
+    url: "https://www.kesanglama.com.np",
+    type: "website",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/logo.png", sizes: "96x96", type: "image/png" },
+      { url: "/web-app-manifest-192x192.png", sizes: "192x192", type: "image/png" },
+      { url: "/web-app-manifest-512x512.png", sizes: "512x512", type: "image/png" },
+    ],
+    apple: "/apple-touch-icon.png",
+    other: [
+      {
+        rel: "manifest",
+        url: "/site.webmanifest",
+      },
+    ],
+  },
 };
+
 
 export default function RootLayout({
   children,
@@ -49,6 +86,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${poppins.variable} ${drugFont.variable} font-sans antialiased`}>
+        <JsonLd />
         <div className="min-h-screen bg-background selection:bg-primary/20 selection:text-primary">
               <Header />
               <main>

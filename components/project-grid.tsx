@@ -188,11 +188,11 @@ export default function ProjectsGrid() {
                 >
                   <Image
                     src={p.image}
-                    alt={p.title}
+                    alt={`${p.title} — ${p.tagline}`}
                     fill
                     className="object-cover"
                     sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                    quality={95}
+                    quality={75}
                     priority={index < 3}
                   />
                 </motion.div>

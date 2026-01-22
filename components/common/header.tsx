@@ -237,7 +237,7 @@ export default function Header() {
           <div className="w-10 h-10 rounded-full flex items-center justify-center overflow-hidden">
             {/* <span className="text-white text-xl font-bold">K</span> */}
             <Image
-              src="/avatar.jpeg"
+              src="/logo.png"
               alt="Kesang Lama Logo"
               width={40}
               height={40}
