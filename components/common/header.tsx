@@ -229,6 +229,7 @@ export default function Header() {
     <nav className="fixed top-0 left-0 right-0 bg-white z-40 shadow-sm">
       <div className="px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
         {/* Logo */}
+        <div className="flex items-center gap-x-2 flex-1">
         <motion.div
           whileHover={{ scale: 1.05 }}
           className="flex items-center space-x-3 cursor-pointer select-none"
@@ -245,13 +246,50 @@ export default function Header() {
             />
           </div>
           <div>
-          <span className="hidden sm:block text-lg font-semibold">Kesang Lama</span>
-          <span className="text-xs hidden sm:block font-medium tracking-wide">Full Stack Developer</span>
+          {/* <span className="hidden sm:block text-lg font-semibold">Kesang Lama</span>
+          <span className="text-xs hidden sm:block font-medium tracking-wide">Full Stack Developer</span> */}
           </div>
         </motion.div>
+        <div className="hidden md:flex items-center space-x-4">
+          {menuItems.map((item) => {
+            const active = isActive(item.href, item.homeId);
+
+            if (item.homeId && isHome) {
+              return (
+                <motion.button
+                  key={item.label}
+                  onClick={() => handleNavClick(item)}
+                  whileHover={{ scale: 1.05 }}
+                  className={`transition ${
+                    active
+                      ? "text-black font-extrabold text-xl"
+                      : "text-gray-600 hover:text-gray-900"
+                  }`}
+                >
+                  {item.label}
+                </motion.button>
+              );
+            }
+
+            return (
+              <motion.div
+                key={item.label}
+                whileHover={{ scale: 1.05 }}
+                className={`transition ${
+                  active
+                      ? "text-black font-extrabold text-xl"
+                      : "text-gray-600 hover:text-gray-900"
+                }`}
+              >
+                <Link href={item.href}>{item.label}</Link>
+              </motion.div>
+            );
+          })}
+        </div>
+        </div>
 
         {/* Desktop Menu */}
-        <div className="hidden md:flex items-center space-x-8">
+        {/* <div className="hidden md:flex items-center space-x-8">
           {menuItems.map((item) => {
             const active = isActive(item.href, item.homeId);
 
@@ -286,6 +324,12 @@ export default function Header() {
               </motion.div>
             );
           })}
+        </div> */}
+
+        <div className="flex-1 opacity-0 hover:opacity-100 transition-opacity ease-in-out">
+          <h1 className="cursive-font text-sm md:text-xl font-medium cursor-pointer">
+            Kesang Lama
+          </h1>
         </div>
 
         {/* Social Icons */}

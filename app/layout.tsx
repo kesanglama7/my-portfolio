@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import LocalFont from "next/font/local";
 import "./globals.css";
@@ -6,6 +5,7 @@ import Header from "@/components/common/header";
 import Footer from "@/components/common/footer";
 import ScrollToTop from "@/components/common/scroll-to-top";
 import JsonLd from "@/lib/seo/jsonld";
+import { Toaster } from "@/components/ui/sonner";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -31,10 +31,20 @@ const drugFont = LocalFont({
     },
     {
       path: "../public/fonts/Drugs-Bold.otf",
-      weight: "700",
+      weight: "800",
     },
   ],
   variable: "--font-drug",
+});
+
+const cursiveFont = LocalFont({
+  src: [
+    {
+      path: "../public/fonts/cursive.ttf",
+      weight: "500",
+    },
+  ],
+  variable: "--font-cursive",
 });
 
 export const metadata = {
@@ -85,12 +95,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${poppins.variable} ${drugFont.variable} font-sans antialiased`}>
+      <body className={`${poppins.variable} ${drugFont.variable} ${cursiveFont.variable} font-sans antialiased`}>
         <JsonLd />
         <div className="min-h-screen bg-background selection:bg-primary/20 selection:text-primary">
               <Header />
               <main>
                   {children}
+                  <Toaster richColors />
               </main>
               <Footer />
               <ScrollToTop />

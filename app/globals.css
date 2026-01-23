@@ -9,6 +9,7 @@
   --color-foreground: var(--foreground);
 
   --font-drug: var(--font-drug);
+  --font-cursive: var(--font-cursive);
   /* 👇 USE POPPINS HERE */
   --font-sans: var(--font-poppins),
     system-ui,
@@ -140,5 +141,8 @@ body {
   }
   body {
     @apply bg-background text-foreground;
+  }
+  .cursive-font {
+    font-family: var(--font-cursive);
   }
 }

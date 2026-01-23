@@ -1,8 +1,10 @@
-export default function AboutPage() {
+import AboutContent from "@/components/about/about-content";
 
-    return (
-        <div className="min-h-screen flex items-center justify-center">
-            <p className="text-black">about us</p>
-        </div>
-    )
+
+export default function AboutPage() {
+  return (
+    <main className="min-h-screen bg-white py-16">
+      <AboutContent />
+    </main>
+  );
 }
