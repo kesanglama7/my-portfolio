@@ -359,7 +359,7 @@ export default function AutoReplyEmail({ name }: AutoReplyProps) {
                 <Link href="https://kesanglama.com.np" style={linkButton}>
                   🌐 portfolio
                 </Link>
-                <Link href="https://github.com/kesanglama" style={linkButton}>
+                <Link href="https://github.com/kesanglama7" style={linkButton}>
                   ⌥ github
                 </Link>
               </div>

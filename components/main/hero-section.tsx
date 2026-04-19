@@ -3,11 +3,19 @@
 import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { MapPin } from "lucide-react";
-import { FaGithub, FaInstagram, FaLinkedin } from "react-icons/fa";
 import { StickyTag } from "../custom/sticky-tag";
 import { WobblyButton } from "../custom/wobbly-button";
+import { SOCIAL } from "@/lib/static_data/social-data";
 
-const TITLES = ["Frontend Developer.", "Next.js Engineer.", "UI Craftsman.", "Full-Stack (sometimes)."];
+// const TITLES = ["Frontend Developer.", "Next.js Engineer.", "UI Craftsman.", "Full-Stack (sometimes)."];
+const TITLES = [
+  "Code with Vibe.",
+  "Tailwind Survivor.",
+  "Next.js or Whatever.",
+  "Available. Unfortunately.",
+];
+
+
 
 export function HeroSection() {
   const typedRef = useRef<HTMLSpanElement>(null);
@@ -81,19 +89,20 @@ export function HeroSection() {
           </div>
 
           <p className="font-body text-xl md:text-2xl text-[var(--color-pencil)]/80 max-w-lg leading-relaxed">
-            I craft digital experiences that feel <span className="underline-wavy">handmade</span>. 
-            Currently engineering at <span className="font-bold text-[var(--color-ink)]">Clover Tech</span>.
+            {/* I craft digital experiences that feel <span className="underline-wavy">handmade</span>. 
+            Frontend Devloper at <span className="font-bold text-[var(--color-ink)]">Clover Tech</span>. */}
+            I write code that works <span className="underline-wavy">on my machine</span>. Professionally. At <span className="font-bold text-[var(--color-ink)]">Clover Tech Nepal</span>. Please hire me before they figure out what I&apos;ve been doing.
           </p>
 
           <div className="flex flex-wrap gap-4 items-center">
-            <WobblyButton href="/#work" className="text-lg px-8 py-3 bg-[var(--color-pencil)] text-white shadow-hard hover:shadow-hard-lg transition-all">
+            <WobblyButton href="/portfolio" className="text-lg px-8 py-3 bg-[var(--color-pencil)] text-white shadow-hard hover:shadow-hard-lg transition-all">
               Check my folio →
             </WobblyButton>
             
             <div className="flex gap-4 ml-2">
-              {[FaGithub, FaInstagram, FaLinkedin].map((Icon, i) => (
-                <a key={i} href="#" className="p-3 border-2 border-[var(--color-pencil)] wobbly-btn hover:bg-[var(--color-postit)] transition-colors">
-                  <Icon size={20} />
+              {SOCIAL.map((s) => (
+                <a key={s.id} href={s.url} className="p-3 border-2 border-[var(--color-pencil)] wobbly-btn hover:bg-[var(--color-postit)] transition-colors">
+                  <s.icon size={20} />
                 </a>
               ))}
             </div>
@@ -185,14 +194,14 @@ export function HeroSection() {
             </div>
 
             <div className="flex flex-row items-center gap-4">
-              <WobblyButton href="/#work" className="text-sm p-2 bg-[var(--color-pencil)] text-white shadow-hard hover:shadow-hard-lg transition-all">
+              <WobblyButton href="/portfolio" className="text-sm p-2 bg-[var(--color-pencil)] text-white shadow-hard hover:shadow-hard-lg transition-all">
                 Check my folio →
               </WobblyButton>
               
               <div className="flex gap-4 ml-2">
-                {[FaGithub, FaInstagram, FaLinkedin].map((Icon, i) => (
-                  <a key={i} href="#" className="p-2 border-2 border-[var(--color-pencil)] wobbly-btn hover:bg-[var(--color-postit)] transition-colors">
-                    <Icon size={10} />
+                {SOCIAL.map((s) => (
+                  <a key={s.id} href={s.url} className="p-2 border-2 border-[var(--color-pencil)] wobbly-btn hover:bg-[var(--color-postit)] transition-colors">
+                    <s.icon size={10} />
                   </a>
                 ))}
               </div>

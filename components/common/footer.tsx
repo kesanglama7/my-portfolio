@@ -6,9 +6,9 @@ import { FaGithub, FaInstagram, FaFacebook } from "react-icons/fa6";
 import { cn } from "@/lib/utils";
 
 const SOCIALS = [
-  { name: "GH", icon: FaGithub, href: "#", rotate: "-rotate-6", color: "var(--color-ink)" },
-  { name: "FB", icon: FaFacebook, href: "#", rotate: "rotate-3", color: "#1DA1F2" },
-  { name: "IG", icon: FaInstagram, href: "#", rotate: "rotate-6", color: "var(--color-marker)" },
+  { name: "GH", icon: FaGithub, href: "https://github.com/kesanglama7", rotate: "-rotate-6", color: "var(--color-ink)" },
+  { name: "FB", icon: FaFacebook, href: "https://www.facebook.com/kesang.lama.851681/", rotate: "rotate-3", color: "#1DA1F2" },
+  { name: "IG", icon: FaInstagram, href: "https://www.instagram.com/nonee_ee_1/", rotate: "rotate-6", color: "var(--color-marker)" },
 ];
 
 export function Footer() {
@@ -33,6 +33,7 @@ export function Footer() {
             <motion.a
               key={i}
               href={soc.href}
+              target="_blank"
               whileHover={{ y: -10, rotate: 0, scale: 1.1 }}
               className={cn(
                 "w-16 h-16 md:w-20 md:h-20 bg-white border-2 border-black flex items-center justify-center shadow-hard group transition-colors hover:bg-[var(--color-postit)]",

@@ -5,6 +5,7 @@ import NavLink from './nav-links';
 import Curve from './curve';
 import { menuSlide } from './animation';
 import { navItems } from '@/lib/static_data/nav-data';
+import { SOCIAL } from '@/lib/static_data/social-data';
 
 
 export default function Nav({ closeMenu }: { closeMenu: () => void }) {
@@ -34,9 +35,9 @@ export default function Nav({ closeMenu }: { closeMenu: () => void }) {
           </div>
           
           <div className="flex w-full justify-between text-sm font-hand gap-4 opacity-50">
-            <a href="#">Instagram</a>
-            <a href="#">LinkedIn</a>
-            <a href="#">Facebook</a>
+            {SOCIAL.map((s) => (
+              <a key={s.id} href={s.url} target='_blank'>{s.name}</a>
+            ))}
           </div>
        </div>
        <Curve />

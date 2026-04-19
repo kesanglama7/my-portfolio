@@ -128,6 +128,7 @@
 
 import { motion } from "framer-motion";
 import { ArrowRight, Sparkle } from "lucide-react";
+import Link from "next/link";
 
 export function CTASection() {
   return (
@@ -170,10 +171,12 @@ export function CTASection() {
           <div className="absolute inset-0 bg-[var(--color-pencil)] translate-y-2 rounded-2xl wobbly-btn" />
           
           {/* The Main Button Layer */}
-          <button className="relative flex items-center gap-4 px-12 py-6 bg-[var(--color-ink)] text-white font-heading text-3xl md:text-4xl border-2 border-[var(--color-pencil)] rounded-2xl wobbly-btn -translate-y-1 group-active:translate-y-1 transition-transform duration-100">
+          <Link href="/contact">
+          <button className="relative flex items-center gap-4 px-12 py-6 bg-[var(--color-ink)] text-white font-heading text-3xl md:text-4xl border-2 border-[var(--color-pencil)] rounded-2xl wobbly-btn -translate-y-1 group-active:translate-y-1 transition-transform duration-100 cursor-pointer">
             Let&apos;s Chat
             <ArrowRight size={32} />
           </button>
+          </Link>
         </motion.div>
 
         {/* Little "Free" or "Quick" tag */}
