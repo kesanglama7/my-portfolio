@@ -1,5 +1,5 @@
+import { PROJECTS } from "@/lib/static_data/project-data";
 import { MetadataRoute } from "next";
-import { projects } from "@/lib/data";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://www.kesanglama.com.np";
@@ -26,8 +26,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ];
 
-  const projectPages: MetadataRoute.Sitemap = projects.map((project) => ({
-    url: `${baseUrl}/projects/${project.slug}`,
+  // Mapping to the /portfolio/[id] structure
+  const projectPages: MetadataRoute.Sitemap = PROJECTS.map((project) => ({
+    url: `${baseUrl}/portfolio/${project.id}`, 
     lastModified: now,
     changeFrequency: "monthly",
     priority: 0.7,
