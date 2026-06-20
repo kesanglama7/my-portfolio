@@ -1,5 +1,3 @@
-"use client";
-
 import {
   Body,
   Container,
@@ -18,341 +16,184 @@ type AutoReplyProps = {
 };
 
 export default function AutoReplyEmail({ name }: AutoReplyProps) {
-  const safeName = name?.trim() || "there";
-
   return (
     <Html>
       <Head />
-      <Preview>
-        Your message reached Kesang Lama — I&apos;ll get back to you soon.
-      </Preview>
+      <Preview>Thank you for reaching out. I will get back to you soon.</Preview>
 
       <Body style={main}>
         <Container style={container}>
-          {/* Top signal line */}
-          <Section style={topBar}>
-            <Text style={systemLabel}>MESSAGE RECEIVED</Text>
-            <Text style={referenceText}>PORTFOLIO CONTACT · AUTO REPLY</Text>
-          </Section>
+          
+          {/* === HEADING === */}
+          <Heading style={heading}>
+            Hello {name},
+          </Heading>
 
-          {/* Hero */}
-          <Section style={heroSection}>
-            <div style={signalDot} />
+          {/* === BODY TEXT === */}
+          <Text style={text}>
+            Thank you for getting in touch. This is an automated response to confirm that your message has been successfully received.
+          </Text>
 
-            <Heading style={heading}>Hey {safeName},</Heading>
+          <Text style={text}>
+            I am currently reviewing your inquiry and will get back to you within <span style={highlight}>24–48 hours</span>. If your request is urgent, please reply directly to this email and I will prioritize it accordingly.
+          </Text>
 
-            <Text style={introText}>
-              Your message has reached my inbox successfully.
-            </Text>
-
-            <Text style={bodyText}>
-              Thanks for reaching out through my portfolio. I&apos;ll review your
-              message carefully and reply personally as soon as I can.
-            </Text>
-          </Section>
-
-          <Hr style={divider} />
-
-          {/* Status Card */}
-          <Section style={statusCard}>
-            <Text style={statusEyebrow}>CURRENT STATUS</Text>
-
-            <Text style={statusTitle}>Signal received. Response pending.</Text>
-
-            <Text style={statusBody}>
-              I usually reply within <strong>24–48 hours</strong>. If the
-              message is urgent, you can reply directly to this email and I&apos;ll
-              prioritize it.
-            </Text>
-          </Section>
-
-          {/* Next Steps */}
-          <Section style={stepsSection}>
-            <Text style={sectionLabel}>WHAT HAPPENS NEXT</Text>
-
-            <div style={stepRow}>
-              <span style={stepNumber}>01</span>
-              <Text style={stepText}>I&apos;ll review your project details.</Text>
-            </div>
-
-            <div style={stepRow}>
-              <span style={stepNumber}>02</span>
-              <Text style={stepText}>You&apos;ll get a personal reply from me.</Text>
-            </div>
-
-            <div style={stepRow}>
-              <span style={stepNumber}>03</span>
-              <Text style={stepText}>
-                We&apos;ll see how we can build something useful together.
-              </Text>
-            </div>
+          {/* === NEXT STEPS (Optional Professional List) === */}
+          <Section style={listContainer}>
+            <Text style={listTitle}>What to expect next:</Text>
+            <ul style={list}>
+              <li style={listItem}>I will review your message and project details.</li>
+              <li style={listItem}>You will receive a personalized response from me.</li>
+              <li style={listItem}>We will determine the best next steps for moving forward.</li>
+            </ul>
           </Section>
 
           <Hr style={divider} />
 
-          {/* Signature */}
-          <Section style={signatureSection}>
-            <Text style={signoff}>Talk soon,</Text>
-
+          {/* === SIGNATURE SECTION === */}
+          <Section style={signatureContainer}>
+            <Text style={signoffText}>Best regards,</Text>
             <Text style={signatureName}>Kesang Lama</Text>
+            <Text style={signatureRole}>Frontend Developer · Next.js Specialist</Text>
 
-            <Text style={signatureRole}>
-              Frontend Developer · Next.js · React · Product Interfaces
-            </Text>
-
-            <Section style={linkSection}>
-              <Link href="https://kesanglama.com.np" style={primaryLink}>
-                View Portfolio
+            {/* === LINK BUTTONS === */}
+            <Section style={linkRow}>
+              <Link href="https://kesanglama.com.np" style={link}>
+                Portfolio
               </Link>
-
-              <Link href="https://github.com/kesanglama7" style={secondaryLink}>
+              <span style={linkSeparator}>|</span>
+              <Link href="https://github.com/kesanglama7" style={link}>
                 GitHub
               </Link>
             </Section>
           </Section>
 
-          <Text style={footerText}>
-            This is an automated confirmation email, but the next reply will be
-            written by me.
-          </Text>
         </Container>
+
+        {/* === FOOTER === */}
+        <Text style={footerText}>
+          This is an automated message. Please do not reply unless you have additional urgent information to add.
+        </Text>
       </Body>
     </Html>
   );
 }
 
 /* ============================================================
-   DARK CINEMATIC EMAIL THEME
-   Matches the new black contact section:
-   black base · soft borders · signal dot · clean portfolio style
+   STYLES — Clean & Professional Corporate Theme
    ============================================================ */
 
 const main = {
-  margin: "0",
-  padding: "48px 18px",
-  backgroundColor: "#030303",
-  backgroundImage:
-    "radial-gradient(circle at 50% 0%, rgba(255,255,255,0.09), transparent 32%), radial-gradient(rgba(255,255,255,0.08) 1px, transparent 1px)",
-  backgroundSize: "100% 100%, 24px 24px",
+  backgroundColor: "#f6f9fc",
   fontFamily:
-    "-apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif",
+    '-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Ubuntu,sans-serif',
+  padding: "40px 0",
 };
 
 const container = {
-  width: "100%",
-  maxWidth: "620px",
+  backgroundColor: "#ffffff",
   margin: "0 auto",
-  backgroundColor: "#080808",
-  border: "1px solid rgba(255,255,255,0.12)",
-  borderRadius: "28px",
-  overflow: "hidden",
-  boxShadow: "0 32px 80px rgba(0,0,0,0.45)",
-};
-
-const topBar = {
-  padding: "22px 28px",
-  borderBottom: "1px solid rgba(255,255,255,0.1)",
-  backgroundColor: "#0c0c0c",
-};
-
-const systemLabel = {
-  margin: "0 0 6px",
-  color: "#f5f5f5",
-  fontSize: "11px",
-  fontWeight: "800",
-  letterSpacing: "0.28em",
-  textTransform: "uppercase" as const,
-};
-
-const referenceText = {
-  margin: "0",
-  color: "rgba(245,245,245,0.42)",
-  fontSize: "11px",
-  fontWeight: "700",
-  letterSpacing: "0.18em",
-  textTransform: "uppercase" as const,
-};
-
-const heroSection = {
-  padding: "44px 34px 28px",
-  textAlign: "left" as const,
-};
-
-const signalDot = {
-  width: "14px",
-  height: "14px",
-  borderRadius: "999px",
-  backgroundColor: "#f5f5f5",
-  boxShadow:
-    "0 0 0 8px rgba(255,255,255,0.06), 0 0 34px rgba(255,255,255,0.55)",
-  marginBottom: "30px",
+  padding: "40px",
+  borderRadius: "8px",
+  border: "1px solid #eaeaea",
+  maxWidth: "600px",
 };
 
 const heading = {
-  margin: "0 0 14px",
-  color: "#ffffff",
-  fontSize: "42px",
-  lineHeight: "0.95",
-  fontWeight: "900",
-  letterSpacing: "-0.055em",
-  textTransform: "uppercase" as const,
-};
-
-const introText = {
-  margin: "0 0 20px",
-  color: "rgba(255,255,255,0.78)",
-  fontSize: "18px",
-  lineHeight: "1.55",
+  fontSize: "24px",
   fontWeight: "600",
+  color: "#333333",
+  margin: "0 0 24px",
 };
 
-const bodyText = {
+const text = {
+  fontSize: "16px",
+  lineHeight: "1.6",
+  color: "#555555",
+  margin: "0 0 16px",
+};
+
+const highlight = {
+  fontWeight: "600",
+  color: "#333333",
+};
+
+const listContainer = {
+  backgroundColor: "#f8fafc",
+  padding: "20px",
+  borderRadius: "6px",
+  margin: "24px 0",
+};
+
+const listTitle = {
+  fontSize: "14px",
+  fontWeight: "600",
+  color: "#333333",
+  margin: "0 0 12px",
+  textTransform: "uppercase" as const,
+  letterSpacing: "0.05em",
+};
+
+const list = {
   margin: "0",
-  color: "rgba(255,255,255,0.58)",
+  padding: "0 0 0 20px",
+  color: "#555555",
+};
+
+const listItem = {
   fontSize: "15px",
-  lineHeight: "1.8",
-  fontWeight: "400",
+  lineHeight: "1.6",
+  marginBottom: "8px",
 };
 
 const divider = {
-  border: "none",
-  borderTop: "1px solid rgba(255,255,255,0.1)",
-  margin: "0",
+  borderTop: "1px solid #eaeaea",
+  margin: "32px 0",
 };
 
-const statusCard = {
-  margin: "28px 28px",
-  padding: "24px",
-  backgroundColor: "#111111",
-  border: "1px solid rgba(255,255,255,0.12)",
-  borderRadius: "22px",
+const signatureContainer = {
+  marginTop: "8px",
 };
 
-const statusEyebrow = {
-  margin: "0 0 10px",
-  color: "rgba(255,255,255,0.4)",
-  fontSize: "10px",
-  fontWeight: "800",
-  letterSpacing: "0.24em",
-  textTransform: "uppercase" as const,
-};
-
-const statusTitle = {
-  margin: "0 0 10px",
-  color: "#ffffff",
-  fontSize: "22px",
-  lineHeight: "1.15",
-  fontWeight: "850",
-  letterSpacing: "-0.035em",
-};
-
-const statusBody = {
-  margin: "0",
-  color: "rgba(255,255,255,0.62)",
-  fontSize: "14px",
-  lineHeight: "1.75",
-};
-
-const stepsSection = {
-  padding: "8px 28px 32px",
-};
-
-const sectionLabel = {
-  margin: "0 0 18px",
-  color: "rgba(255,255,255,0.42)",
-  fontSize: "10px",
-  fontWeight: "800",
-  letterSpacing: "0.26em",
-  textTransform: "uppercase" as const,
-};
-
-const stepRow = {
-  display: "flex",
-  alignItems: "flex-start",
-  gap: "14px",
-  padding: "15px 0",
-  borderTop: "1px solid rgba(255,255,255,0.08)",
-};
-
-const stepNumber = {
-  display: "inline-block",
-  minWidth: "32px",
-  color: "#ffffff",
-  fontSize: "12px",
-  fontWeight: "900",
-  letterSpacing: "0.12em",
-};
-
-const stepText = {
-  margin: "0",
-  color: "rgba(255,255,255,0.68)",
-  fontSize: "14px",
-  lineHeight: "1.65",
-};
-
-const signatureSection = {
-  padding: "30px 28px 34px",
-};
-
-const signoff = {
-  margin: "0 0 6px",
-  color: "rgba(255,255,255,0.48)",
-  fontSize: "14px",
-  lineHeight: "1.5",
+const signoffText = {
+  fontSize: "16px",
+  color: "#555555",
+  margin: "0 0 8px",
 };
 
 const signatureName = {
+  fontSize: "18px",
+  fontWeight: "600",
+  color: "#333333",
   margin: "0 0 4px",
-  color: "#ffffff",
-  fontSize: "26px",
-  fontWeight: "900",
-  letterSpacing: "-0.04em",
 };
 
 const signatureRole = {
-  margin: "0 0 24px",
-  color: "rgba(255,255,255,0.5)",
-  fontSize: "13px",
-  lineHeight: "1.65",
+  fontSize: "14px",
+  color: "#666666",
+  margin: "0 0 16px",
 };
 
-const linkSection = {
-  display: "flex",
-  gap: "12px",
+const linkRow = {
+  marginTop: "16px",
 };
 
-const primaryLink = {
-  display: "inline-block",
-  padding: "12px 18px",
-  backgroundColor: "#ffffff",
-  color: "#050505",
-  borderRadius: "999px",
-  fontSize: "12px",
-  fontWeight: "900",
-  letterSpacing: "0.1em",
+const link = {
+  fontSize: "14px",
+  color: "#0066cc",
   textDecoration: "none",
-  textTransform: "uppercase" as const,
+  fontWeight: "500",
 };
 
-const secondaryLink = {
-  display: "inline-block",
-  padding: "12px 18px",
-  backgroundColor: "transparent",
-  color: "#ffffff",
-  border: "1px solid rgba(255,255,255,0.18)",
-  borderRadius: "999px",
-  fontSize: "12px",
-  fontWeight: "900",
-  letterSpacing: "0.1em",
-  textDecoration: "none",
-  textTransform: "uppercase" as const,
+const linkSeparator = {
+  color: "#eaeaea",
+  margin: "0 12px",
 };
 
 const footerText = {
-  margin: "0",
-  padding: "0 28px 30px",
-  color: "rgba(255,255,255,0.34)",
   fontSize: "12px",
-  lineHeight: "1.7",
+  color: "#8898aa",
   textAlign: "center" as const,
+  marginTop: "24px",
+  padding: "0 20px",
 };
